@@ -1,17 +1,17 @@
 balance = 0
 
 market = [{
-    1:{"Плюшевый мишка" : "100$",
-    "Духи Dior" : "200$",
-    "Холодильник Samsug" : "300$",
+    1:{"1. Плюшевый мишка" : "100$",
+    "2. Духи Dior" : "200$",
+    "3. Холодильник Samsug" : "300$",
     },
-    2:{"Яндекс Алиса" : "400$",
-    "Playstation 5" : "500$",
-    "Ноутбук HONOR" : "600$",
+    2:{"4. Яндекс Алиса" : "400$",
+    "5. Playstation 5" : "500$",
+    "6. Ноутбук HONOR" : "600$",
     },
-    3:{"Iphone 14" : "700$",
-    "Macbook Pro" : "800$",
-    "Iphone 16" : "900$" ,
+    3:{"7. Iphone 14" : "700$",
+    "8. Macbook Pro" : "800$",
+    "9. Iphone 16" : "900$" ,
     },    
 }]
 
@@ -111,7 +111,7 @@ if start_of_game == "Да" or start_of_game == "да":
 
  
     user = input("Выберите уровень! ")
-    print()
+    print("-" * 25)
 
 
     if (user == "легкий") or (user == "1") or (user == "Легкий"):
@@ -134,9 +134,8 @@ if start_of_game == "Да" or start_of_game == "да":
             balance = 0
             print(f"Эх жаль, неправильно, ваш баланс {balance} $  :(")
     
-        for i in range(3):
-            print(" ")
-# --------------------------------------------------------
+        print("-" * 25)
+# --------------------------------------------------------1
 
 # ЛЕГКИЙ 2 ВОПРОС
         print()
@@ -158,8 +157,7 @@ if start_of_game == "Да" or start_of_game == "да":
             balance = 0
             print(f"Фиаско, ваш баланс: {balance} $  :( ")
 
-        for i in range(3):
-            print(" ")
+        print("-" * 25)
     
     
 #-----------------------------------------------------
@@ -184,33 +182,44 @@ if start_of_game == "Да" or start_of_game == "да":
             balance = 0
             print(f"Не получилось, не фортануло, ваш баланс {balance} $  :( ")
 
-        for i in range(3):
-            print(" ")
+        print("-" * 25)
+        print()
     
         
         if balance > 0:
             print("Добро пожаловать в наш магазин, здесь вы можете купить товар на выигранные деньги.")
             temp = market[0][1]
-
+ 
             for key, value in temp.items():
                 print(f"{key} -- {value}")
+
 
             while True:
                 print()
                 print("Выберите предмет который хотите купить. Для выхода из магазина да введите 0.")
                 user = input()
-
+                
                 if user == "Плюшевый мишка" or user == "1":
                     print(f"Спасибо вам за покупку :). Ваш баланс:  {balance - 100} $")
                     break
 
                 elif user == "Духи Dior" or user == "2":
-                    print(f"Спасибо вам за покупку :). Ваш баланс:  {balance - 200} $")
-                    break
+                        if balance < 200:
+                            print(f"Увы, но у вас была всего одна попытка на выбор предмета, ваш баланс {balance} $, пока пока :)")
+                            break
+                        else:
+                            print(f"Спасибо вам за покупку :). Ваш баланс:  {balance - 200} $")
+                            break
+                    
 
                 elif user == "Холодильник Samsug" or user == "3":
-                    print(f"Спасибо вам за покупку :). Ваш баланс:  {balance - 300} $")
-                    break
+                        if balance < 300:
+                            print(f"Увы, но у вас была всего одна попытка на выбор предмета, ваш баланс {balance} $, пока пока :)") 
+                            break
+                        else:
+                            print(f"Спасибо вам за покупку :). Ваш баланс:  {balance - 300} $")
+                            break
+                    
 
                 elif user == "0":
                     print(f"Ваш баланс:  {balance} $. Спасибо вам за игру :)")
@@ -244,8 +253,7 @@ if start_of_game == "Да" or start_of_game == "да":
             balance = 0
             print(f"Надо еще подумать, ваш баланс {balance} $  :( ")
         
-        for i in range(3):
-            print(" ")
+        print("-" * 25)
     
     
 #-------------------------------------------------------------------------------
@@ -270,8 +278,7 @@ if start_of_game == "Да" or start_of_game == "да":
             balance = 0
             print(f"Эх, а было близко, ваш баланс {balance} $  :( ")
 
-        for i in range(3):
-            print(" ")
+        print("-" * 25)
         
 #----------------------------------------------------------------------------
 # Средний ВОПРОС 3
@@ -294,16 +301,21 @@ if start_of_game == "Да" or start_of_game == "да":
             balance = 0
             print(f"Попытка не пытка, ваш баланс {balance} $  :( ")
 
-        for i in range(3):
-            print(" ")
+        
+        print("-" * 25)
+        print()
 
         
         if balance > 0:
             print("Добро пожаловать в наш магазин, здесь вы можете купить товар на выигранные деньги.")
-            temp = market[0][2]
-    
+            temp = market[0][1]
+            temp_1 = market[0][2]
+            
 
             for key, value in temp.items():
+                print(f"{key} -- {value}")
+
+            for key, value in temp_1.items():
                 print(f"{key} -- {value}")
 
             while True:
@@ -311,18 +323,57 @@ if start_of_game == "Да" or start_of_game == "да":
                 print("Выберите предмет который хотите купить. Для выхода из магазина введите 0.")
                 user = input()
 
-    
-                if (user == "Яндекс Алиса") or (user == "1"):
-                    print(f"Спасибо вам за покупку :). Ваш баланс:  {balance - 400} $")
-                    break
-    
-                elif user == ("Playstation 5") or (user == "2"):
-                    print(f"Спасибо вам за покупку :). Ваш баланс:  {balance - 500} $")
+                if user == "Плюшевый мишка" or user == "1":
+                    print(f"Спасибо вам за покупку :). Ваш баланс:  {balance - 100} $")
                     break
 
-                elif (user == "Ноутбук HONOR") or (user == "3"):
-                    print(f"Спасибо вам за покупку :). Ваш баланс:  {balance - 600} $")
-                    break
+                elif user == "Духи Dior" or user == "2":
+                        if balance < 200:
+                            print(f"Увы, но у вас была всего одна попытка на выбор предмета, ваш баланс {balance} $, пока пока :)") 
+                            break
+
+                        else:
+                            print(f"Спасибо вам за покупку :). Ваш баланс:  {balance - 200} $")
+                            break
+                    
+
+                elif user == "Холодильник Samsug" or user == "3":
+                        if balance < 300:
+                            print(f"Увы, но у вас была всего одна попытка на выбор предмета, ваш баланс {balance} $, пока пока :)") 
+                            break
+                        else:
+                            print(f"Спасибо вам за покупку :). Ваш баланс:  {balance - 300} $")
+                            break
+                    
+
+                elif (user == "Яндекс Алиса") or (user == "4"):
+                        if balance < 400:
+                            print(f"Увы, но у вас была всего одна попытка на выбор предмета, ваш баланс {balance} $, пока пока :)") 
+                            break
+                        else:
+                            print(f"Спасибо вам за покупку :). Ваш баланс:  {balance - 400} $")
+                            break
+                    
+    
+                elif user == ("Playstation 5") or (user == "5"):
+                        if balance < 500:
+                            print(f"Увы, но у вас была всего одна попытка на выбор предмета, ваш баланс {balance} $, пока пока :)") 
+                            break
+                        else:
+                            print(f"Спасибо вам за покупку :). Ваш баланс:  {balance - 500} $")
+                            break
+                    
+
+                elif (user == "Ноутбук HONOR") or (user == "6"):
+
+                        if balance < 600:
+                            print(f"Увы, но у вас была всего одна попытка на выбор предмета, ваш баланс {balance} $, пока пока :)") 
+                            break
+                        else:
+                            print(f"Спасибо вам за покупку :). Ваш баланс:  {balance - 600} $")
+                            break
+                    
+
 
                 elif (user == "0"):
                     print(f"Ваш баланс:  {balance} $. Спасибо вам за игру :)")
@@ -356,8 +407,7 @@ if start_of_game == "Да" or start_of_game == "да":
             balance = 0
             print(f"Эх пришлось обнулить ваш счет, ваш баланс {balance} $  :( ")
 
-        for i in range(3):
-            print(" ")
+        print("-" * 25)
 #--------------------------------------------------------------------------------
 
 # Сложный ВОПРОС 2
@@ -380,8 +430,7 @@ if start_of_game == "Да" or start_of_game == "да":
             balance = 0
             print(f"Не судьба, ваш баланс {balance} $  :( ")
 
-        for i in range(3):
-            print(" ")
+        print("-" * 25)
 #--------------------------------------------------------------------------------
 
 # Сложный ВОПРОС 3
@@ -404,15 +453,22 @@ if start_of_game == "Да" or start_of_game == "да":
             balance = 0
             print(f"Надо в начальную школу, ваш баланс {balance} $  :( ")
 
-        for i in range(3):
-            print(" ")
+        print("-" * 25)
+        print()
         
-        if 700 <= balance >= 900:
+        if balance > 0:
             print("Добро пожаловать в наш магазин, здесь вы можете купить товар на выигранные деньги.")
-            temp = market[0][3]
-    
+            temp = market[0][1]
+            temp_1 = market[0][2]
+            temp_2 = market[0][3]
 
             for key, value in temp.items():
+                print(f"{key} -- {value}")
+
+            for key, value in temp_1.items():
+                print(f"{key} -- {value}")
+
+            for key, value in temp_2.items():
                 print(f"{key} -- {value}")
 
             while True:
@@ -421,21 +477,83 @@ if start_of_game == "Да" or start_of_game == "да":
                 user = input()
 
                 
-                if (user == "Iphone 14") or (user == "1"):
-                    print(f"Спасибо вам за покупку :). Ваш баланс:  {balance - 700} $")
-                    break
-                
-                elif user == ("Macbook Pro") or (user == "2"):
-                    print(f"Спасибо вам за покупку :). Ваш баланс:  {balance - 800} $")
+                if user == "Плюшевый мишка" or user == "1":
+                    print(f"Спасибо вам за покупку :). Ваш баланс:  {balance - 100} $")
                     break
 
-                elif (user == "Iphone 16") or (user == "3"):
-                    print(f"Спасибо вам за покупку :). Ваш баланс:  {balance - 900} $")
-                    break
-                
-                elif (user == "0"):
-                    print(f"Спасибо вам за покупку :). Ваш баланс:  {balance} $")
-                    break
+                elif user == "Духи Dior" or user == "2":
+                    
+                    if balance < 200:
+                        print(f"Увы, но у вас была всего одна попытка на выбор предмета, ваш баланс {balance} $, пока пока :)") 
+                        break
+                    else:
+                        print(f"Спасибо вам за покупку :). Ваш баланс:  {balance - 200} $")
+                        break
+                    
+
+                elif user == "Холодильник Samsug" or user == "3":
+                        if balance < 300:
+                            print(f"Увы, но у вас была всего одна попытка на выбор предмета, ваш баланс {balance} $, пока пока :)") 
+                            break
+                        else:
+                            print(f"Спасибо вам за покупку :). Ваш баланс:  {balance - 300} $")
+                            break
+
+
+                elif (user == "Яндекс Алиса") or (user == "4"):
+
+                        if balance < 400:
+                            print(f"Увы, но у вас была всего одна попытка на выбор предмета, ваш баланс {balance} $, пока пока :)") 
+                            break
+                        else:
+                            print(f"Спасибо вам за покупку :). Ваш баланс:  {balance - 400} $")
+                            break
+                        
+    
+                elif user == ("Playstation 5") or (user == "5"):
+                        if balance < 500:
+                            print(f"Увы, но у вас была всего одна попытка на выбор предмета, ваш баланс {balance} $, пока пока :)") 
+                            break
+                        else:
+                            print(f"Спасибо вам за покупку :). Ваш баланс:  {balance - 500} $")
+                            break
+
+                elif (user == "Ноутбук HONOR") or (user == "6"):
+
+                        if balance < 600:
+                            print(f"Увы, но у вас была всего одна попытка на выбор предмета, ваш баланс {balance} $, пока пока :)") 
+                            break
+                        else:
+                            print(f"Спасибо вам за покупку :). Ваш баланс:  {balance - 600} $")
+                            break
+
+
+                elif (user == "Iphone 14") or (user == "7"):
+                        if balance < 700:
+                            print(f"Увы, но у вас была всего одна попытка на выбор предмета, ваш баланс {balance} $, пока пока :)") 
+                            break
+                        else:
+                            print(f"Спасибо вам за покупку :). Ваш баланс:  {balance - 700} $")
+                            break
+
+
+                elif (user == "Macbook Pro") or (user == "8"):
+                        if balance < 800:
+                            print(f"Увы, но у вас была всего одна попытка на выбор предмета, ваш баланс {balance} $, пока пока :)") 
+                            break
+                        else:
+                            print(f"Спасибо вам за покупку :). Ваш баланс:  {balance - 800} $")
+                            break
+                    
+
+                elif (user == "Iphone 16") or (user == "9"):
+                        if balance < 900:
+                            print(f"Увы, но у вас была всего одна попытка на выбор предмета, ваш баланс {balance} $, пока пока :)") 
+                            break
+                        else:
+                            print(f"Спасибо вам за покупку :). Ваш баланс:  {balance - 900} $")
+                            break
+                    
 
                 else:
                     print("Эххх, непонятное значение!")
